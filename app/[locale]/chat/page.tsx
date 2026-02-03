@@ -1,7 +1,8 @@
-export default function ChatPage({ params: { locale } }: { params: { locale: string } }) {
+export default async function ChatPage({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
   return (
     <div className="p-8">
-      <h1 className="text-2xl font-bold">Chat ({locale})</h1>
+      <h1 className="text-2xl font-bold">Legal Assistant Chat ({locale})</h1>
     </div>
   );
 }

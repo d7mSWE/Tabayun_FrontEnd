@@ -1,8 +1,23 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import React from "react";
+import localFont from "next/font/local";
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"] });
+const handicrafts = localFont({
+  src: [
+    {
+      path: "../public/fonts/Handicrafts-Regular.otf",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "../public/fonts/Handicrafts-Bold.otf",
+      weight: "700",
+      style: "normal",
+    },
+  ],
+  variable: "--font-handicrafts",
+});
 
 export const metadata: Metadata = {
   title: "Tabayun",
@@ -15,8 +30,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
+    <html lang="ar" dir="rtl">
+      <body className={`${handicrafts.variable} font-sans`}>{children}</body>
     </html>
   );
 }
